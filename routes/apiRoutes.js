@@ -27,4 +27,25 @@ router.post('/notes', (req, res) => {
     })
 })
 
+router.delete('/notes/:id', (req, res) => {
+    fs.readFile('./db/db.json', 'utf-8', (err, data) => {
+        if (err) throw err;
+        let notes = JSON.parse(data);
+        // create for loop to search for note to be deleted
+        //loop through each note 
+        for (let i = 0; i < notes.length; i++) {
+            const note = notes[i];
+            //if this note's id matches the one provided, remove the note
+            if (note.id === req.params.id) {
+                notes.splice(i, 1);
+                fs.writeFile('./db/db.json', JSON.stringify(notes), (err, data) => {
+                    if (err) throw err;});
+                res.status(200).json(notes);
+                return;
+            }
+        }
+        res.status(406).json( {message: "not found"});
+    })
+})
+
 module.exports = router;

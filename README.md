@@ -21,7 +21,7 @@ Download the .zip file or clone the repository into your source-code editor. Nav
 
 ## Usage
 
-Open the deployed application. Click "Get Started" to open the note taker. Enter a title for your note then enter your text. Click the save icon to save your note.
+Open the deployed application. Click "Get Started" to open the note taker. Enter a title for your note then enter your text. Click the save icon to save your note. Click the delete icon to delete a note.
 
 ## License
 
